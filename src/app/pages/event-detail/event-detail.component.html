@@ -1,0 +1,71 @@
+<div>
+
+  <h3>Details</h3>
+
+  <dl>
+    <dt>ID</dt>
+    <dd>{{event.id}}</dd>
+    <dt>Name</dt>
+    <dd>{{event.name}}</dd>
+    <dt>Place</dt>
+    <dd>
+      <ul>
+        <li>{{event.place.name}}</li>
+      </ul>
+    </dd>
+    <dt>Category</dt>
+    <dd>
+      <ul>
+        <li>{{event.category.name}}</li>
+      </ul>
+    </dd>
+    <dt>Member</dt>
+    <dd>{{event.member.name}}</dd>
+  </dl>
+
+</div>
+
+  <form [formGroup]="eventForm" (ngSubmit)="save(eventForm.value)">
+    <fieldset>
+      <mat-form-field>
+      <mat-label>Name<br />
+        <input type="text" formControlName="name" matInput required />
+      </mat-label>
+      </mat-form-field>
+
+      <label>Start Date<br />
+        <input type="date" formControlName="startDate"  required />
+      </label>
+
+      <label>End Date<br />
+        <input type="date" formControlName="endDate"  required />
+      </label>
+
+      <p>Member</p>
+        <select multiple required
+          formControlName="members"
+          [compareWith]="compareOptions">
+          <option [ngValue]="platform"
+            *ngFor="let member of members">
+            {{member.name}}
+          </option>
+        </select>
+
+      <label>
+        <p>Genre</p>
+        <select
+        formControlName="genre"
+        [compareWith]="compareOptions">
+        <option [ngValue]="genre"
+          *ngFor="let genre of genres">
+          {{genre.name}}
+        </option>
+        </select>
+      </label>
+
+    </fieldset>
+    <div class="text-right">
+      <button type="reset">Abbrechen</button>
+      <button type="submit">Speichern</button>
+    </div>
+  </form>
