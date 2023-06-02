@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppRoles } from 'src/app/app.roles';
 import { Member } from 'src/app/data/member';
 import { MemberService } from 'src/app/service/member.service';
@@ -8,7 +8,7 @@ import { MemberService } from 'src/app/service/member.service';
   templateUrl: './member-list.component.html',
   styleUrls: ['./member-list.component.scss']
 })
-export class MemberListComponent {
+export class MemberListComponent implements OnInit{
   public members : Array<Member> = []
   roles = AppRoles
 

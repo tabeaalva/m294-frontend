@@ -4,11 +4,11 @@ import {takeUntil} from 'rxjs/operators';
 import {AppAuthService} from '../service/app.auth.service';
 
 @Directive({
-  selector: '[isInRoles]'
+  selector: '[appIsInRoles]'
 })
-export class IsInRolesDirective implements OnInit, OnDestroy {
+export class AppIsInRolesDirective implements OnInit, OnDestroy {
 
-  @Input() isInRoles?: string[];
+  @Input() appIsInRoles?: string[];
   stop$ = new Subject();
   isVisible = false;
 
@@ -26,7 +26,7 @@ export class IsInRolesDirective implements OnInit, OnDestroy {
         this.viewContainerRef.clear();
       }
       let found = true;
-      this.isInRoles?.forEach(r => {
+      this.appIsInRoles?.forEach(r => {
         if (!roles.includes(r)) {
           found = false;
         }

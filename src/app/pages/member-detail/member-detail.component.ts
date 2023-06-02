@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from 'src/app/data/member';
@@ -9,7 +9,7 @@ import { MemberService } from 'src/app/service/member.service';
   templateUrl: './member-detail.component.html',
   styleUrls: ['./member-detail.component.scss']
 })
-export class MemberDetailComponent {
+export class MemberDetailComponent implements OnInit {
   member : Member = new Member()
 
   public memberForm = new FormGroup({

@@ -83,7 +83,7 @@ const routes: Routes = [
   {
     path: "place/:id",
     pathMatch: "full",
-    component: EventDetailComponent
+    component: PlaceDetailComponent
   },
   {
     path: "categorys",

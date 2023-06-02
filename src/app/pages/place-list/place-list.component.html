@@ -12,16 +12,18 @@
 
     <tbody>
       <tr *ngFor="let place of places">
-        <td scope="row">
-          <a [routerLink]="['/places', place.id]" color="primary" mat-raised-button>{{place.id}}</a>
-        </td>
+        <td>{{place.id}}</td>
         <td>{{place.name}}</td>
         <td>{{place.description}}</td>
-        <td><a (click)="delete(place)" color="primary" mat-raised-button>Delete</a></td>
+        <td>
+          <button (click)="delete(place)" color="delete" mat-raised-button>Delete</button>
+          <br>
+          <a [routerLink]="['/place', place.id]" color="primary" mat-raised-button>Edit</a>
+        </td>
       </tr>
     </tbody>
   </table>
-<a *isInRoles="[roles.Admin]" [routerLink]="['/place']" color="primary" mat-raised-button>New place</a>
+<a *appIsInRoles="[roles.Admin]" [routerLink]="['/place']" color="primary" mat-raised-button>New place</a>
 
 </div>
 

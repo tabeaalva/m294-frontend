@@ -4,7 +4,7 @@ import { Category } from "./category"
 
 export class Event {
   public id! : number
-  public name : string = ''
+  public name  = ''
   public startDate! : Date
   public endDate! : Date
   public place : Place = new Place()

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppRoles } from 'src/app/app.roles';
 import { Place } from 'src/app/data/place';
 import { PlaceService } from 'src/app/service/place.service';
@@ -8,7 +8,7 @@ import { PlaceService } from 'src/app/service/place.service';
   templateUrl: './place-list.component.html',
   styleUrls: ['./place-list.component.scss']
 })
-export class PlaceListComponent {
+export class PlaceListComponent implements OnInit{
   public places : Array<Place> = []
   roles = AppRoles
 

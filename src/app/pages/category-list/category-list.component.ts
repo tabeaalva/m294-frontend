@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppRoles } from 'src/app/app.roles';
 import { Category } from 'src/app/data/category';
 import { CategoryService } from 'src/app/service/category.service';
@@ -8,7 +8,7 @@ import { CategoryService } from 'src/app/service/category.service';
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.scss']
 })
-export class CategoryListComponent {
+export class CategoryListComponent implements OnInit {
   public categorys : Array<Category> = []
   roles = AppRoles
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Place } from 'src/app/data/place';
@@ -9,7 +9,7 @@ import { PlaceService } from 'src/app/service/place.service';
   templateUrl: './place-detail.component.html',
   styleUrls: ['./place-detail.component.scss']
 })
-export class PlaceDetailComponent {
+export class PlaceDetailComponent implements OnInit {
   place : Place = new Place()
 
   public placeForm = new FormGroup({

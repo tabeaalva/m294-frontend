@@ -15,8 +15,6 @@ export class CategoryDetailComponent implements OnInit {
   public categoryForm = new FormGroup({
     id: new FormControl(0),
     name: new FormControl(''),
-    description: new FormControl(''),
-
   })
 
   constructor(

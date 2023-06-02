@@ -14,17 +14,19 @@
 
     <tbody>
       <tr *ngFor="let member of members">
-        <td scope="row">
-          <a [routerLink]="['/members', member.id]" color="primary" mat-raised-button>{{member.id}}</a>
-        </td>
+        <td>{{member.id}}</td>
         <td>{{member.name}}</td>
         <td>{{member.lastname}}</td>
         <td>{{member.gender}}</td>
-        <td><a (click)="delete(member)" color="primary" mat-raised-button>Delete</a></td>
+        <td>
+          <button (click)="delete(member)" color="delete" mat-raised-button>Delete</button>
+          <br>
+          <a [routerLink]="['/member', member.id]" color="primary" mat-raised-button>Edit</a>
+        </td>
       </tr>
     </tbody>
   </table>
-<a *isInRoles="[roles.Admin]" [routerLink]="['/member']" color="primary" mat-raised-button>New member</a>
+<a *appIsInRoles="[roles.Admin]" [routerLink]="['/member']" color="primary" mat-raised-button>New member</a>
 
 </div>
 

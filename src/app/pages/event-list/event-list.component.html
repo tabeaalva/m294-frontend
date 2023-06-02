@@ -16,20 +16,23 @@
 
     <tbody>
       <tr *ngFor="let event of events">
-        <td scope="row">
-          <a [routerLink]="['/events', event.id]" color="primary" mat-raised-button>{{event.id}}</a>
-        </td>
+        <td>{{event.id}}</td>
         <td>{{event.name}}</td>
         <td>{{event.startDate}}</td>
         <td>{{event.endDate}}</td>
         <td>{{event.category.name}}</td>
-        <td>{{event.members}}</td>
+        <td >
+          <span *ngFor="let member of event.members">{{member.name}}</span>
+        </td>
         <td>{{event.place.name}}</td>
         <td>
-        <td><a (click)="delete(event)" color="primary" mat-raised-button>Delete</a></td>
+          <button (click)="delete(event)" color="delete" mat-raised-button>Delete</button>
+          <br>
+          <a [routerLink]="['/event', event.id]" color="primary" mat-raised-button>Edit</a>
+        </td>
       </tr>
     </tbody>
   </table>
-<a *isInRoles="[roles.Admin]" [routerLink]="['/event']" color="primary" mat-raised-button>New event</a>
+<a *appIsInRoles="[roles.Admin]" [routerLink]="['/event']" color="primary" mat-raised-button>New event</a>
 
 </div>
