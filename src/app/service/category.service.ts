@@ -20,11 +20,11 @@ export class CategoryService {
       return this.http.get<Category>(environment.backendBaseUrl + this.entityUrl + `/${id}`)
     }
     public update(category: Category): Observable<Category> {
-      return this.http.put<Category>(environment.backendBaseUrl + this.entityUrl + `/${category.id}`, Category);
+      return this.http.put<Category>(environment.backendBaseUrl + this.entityUrl + `/${category.id}`, category);
     }
 
     public save(category: Category): Observable<Category> {
-      return this.http.post<Category>(environment.backendBaseUrl + this.entityUrl, Category);
+      return this.http.post<Category>(environment.backendBaseUrl + this.entityUrl, category);
     }
 
     public delete(id: number): Observable<HttpResponse<string>> {

@@ -9,5 +9,5 @@ export class Event {
   public endDate! : Date
   public place : Place = new Place()
   public category : Category = new Category()
-  public member : Member = new Member()
+  public members : Member[] = []
 }

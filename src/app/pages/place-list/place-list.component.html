@@ -1,0 +1,27 @@
+<h1>Place</h1>
+
+<div>
+  <table style="width: 100%">
+    <thead>
+      <tr>
+        <th role="columnheader" scope="col">ID</th>
+        <th role="columnheader" scope="col">Name</th>
+        <th role="columnheader" scope="col">Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let place of places">
+        <td scope="row">
+          <a [routerLink]="['/places', place.id]" color="primary" mat-raised-button>{{place.id}}</a>
+        </td>
+        <td>{{place.name}}</td>
+        <td>{{place.description}}</td>
+        <td><a (click)="delete(place)" color="primary" mat-raised-button>Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+<a *isInRoles="[roles.Admin]" [routerLink]="['/place']" color="primary" mat-raised-button>New place</a>
+
+</div>
+

@@ -1,0 +1,27 @@
+<h1>Category</h1>
+
+<div>
+  <table style="width: 100%">
+    <thead>
+      <tr>
+        <th role="columnheader" scope="col">ID</th>
+        <th role="columnheader" scope="col">Name</th>
+        <th role="columnheader" scope="col">Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let category of categorys">
+        <td scope="row">
+          <a [routerLink]="['/categorys', category.id]" color="primary" mat-raised-button>{{category.id}}</a>
+        </td>
+        <td>{{category.name}}</td>
+        <td>{{category.description}}</td>
+        <td><a (click)="delete(category)" color="primary" mat-raised-button>Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+<a *isInRoles="[roles.Admin]" [routerLink]="['/category']" color="primary" mat-raised-button>New category</a>
+
+</div>
+

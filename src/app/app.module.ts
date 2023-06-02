@@ -10,7 +10,7 @@ import { AppAuthService } from './service/app.auth.service';
 import { IsInRolesDirective } from './directives/is-in-roles.dir';
 import { environment } from './enviroments/environment';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { NoAccesComponent } from './pages/no-acces/no-acces.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -28,9 +28,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { EventListComponent } from './pages/event-list/event-list.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
+import { CategoryListComponent } from './pages/category-list/category-list.component';
+import { CategoryDetailComponent } from './pages/category-detail/category-detail.component';
+import { MemberDetailComponent } from './pages/member-detail/member-detail.component';
+import { MemberListComponent } from './pages/member-list/member-list.component';
+import { PlaceListComponent } from './pages/place-list/place-list.component';
+import { PlaceDetailComponent } from './pages/place-detail/place-detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export const authConfig: AuthConfig = {
-  issuer: 'http://localhost:8080/realms/ILV',
+  issuer: 'http://localhost:8080/realms/CALENDAR',
   requireHttps: false,
   redirectUri: environment.frontendBaseUrl,
   postLogoutRedirectUri: environment.frontendBaseUrl,
@@ -55,13 +62,20 @@ export function storageFactory(): OAuthStorage {
     LoginComponent,
     NoAccesComponent,
     EventListComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    CategoryListComponent,
+    CategoryDetailComponent,
+    MemberDetailComponent,
+    MemberListComponent,
+    PlaceListComponent,
+    PlaceDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatChipsModule,
     MatButtonModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatMenuModule,
     MatFormFieldModule,

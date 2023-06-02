@@ -20,11 +20,11 @@ export class MemberService {
       return this.http.get<Member>(environment.backendBaseUrl + this.entityUrl + `/${id}`)
     }
     public update(member: Member): Observable<Member> {
-      return this.http.put<Member>(environment.backendBaseUrl + this.entityUrl + `/${member.id}`, Member);
+      return this.http.put<Member>(environment.backendBaseUrl + this.entityUrl + `/${member.id}`, member);
     }
 
     public save(member: Member): Observable<Member> {
-      return this.http.post<Member>(environment.backendBaseUrl + this.entityUrl, Member);
+      return this.http.post<Member>(environment.backendBaseUrl + this.entityUrl, member);
     }
 
     public delete(id: number): Observable<HttpResponse<string>> {

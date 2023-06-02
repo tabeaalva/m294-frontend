@@ -1,0 +1,29 @@
+<div class="head">
+<h1>Member</h1>
+
+<a  [routerLink]="['/members']" color="primary" mat-raised-button>Back</a>
+</div>
+<form [formGroup]="memberForm" (ngSubmit)="save(memberForm.value)">
+  <fieldset>
+    <mat-form-field>
+    <mat-label>Name</mat-label>
+      <input type="text" formControlName="name" matInput required />
+    </mat-form-field>
+    <br />
+  <mat-form-field>
+    <mat-label>Lastname</mat-label>
+      <input type="text" formControlName="lastname" matInput required />
+    </mat-form-field>
+    <br />
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+      <input type="text" formControlName="gender" matInput required />
+    </mat-form-field>
+    <br />
+
+  </fieldset>
+  <div class="text-right">
+    <button type="reset" color="primary" mat-raised-button>Cancel</button>
+    <button type="submit"color="primary" mat-raised-button>Save</button>
+  </div>
+</form>

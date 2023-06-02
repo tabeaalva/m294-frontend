@@ -1,71 +1,62 @@
-<div>
+  <div class="head">
+  <h1>Event</h1>
 
-  <h3>Details</h3>
-
-  <dl>
-    <dt>ID</dt>
-    <dd>{{event.id}}</dd>
-    <dt>Name</dt>
-    <dd>{{event.name}}</dd>
-    <dt>Place</dt>
-    <dd>
-      <ul>
-        <li>{{event.place.name}}</li>
-      </ul>
-    </dd>
-    <dt>Category</dt>
-    <dd>
-      <ul>
-        <li>{{event.category.name}}</li>
-      </ul>
-    </dd>
-    <dt>Member</dt>
-    <dd>{{event.member.name}}</dd>
-  </dl>
-
-</div>
-
+  <a  [routerLink]="['/events']" color="primary" mat-raised-button>Back</a>
+  </div>
   <form [formGroup]="eventForm" (ngSubmit)="save(eventForm.value)">
     <fieldset>
       <mat-form-field>
-      <mat-label>Name<br />
+      <mat-label>Name</mat-label>
         <input type="text" formControlName="name" matInput required />
-      </mat-label>
       </mat-form-field>
+      <br />
 
       <label>Start Date<br />
-        <input type="date" formControlName="startDate"  required />
+        <input type="datetime-local" formControlName="startDate"  required />
       </label>
+      <br />
 
       <label>End Date<br />
-        <input type="date" formControlName="endDate"  required />
+        <input type="datetime-local" formControlName="endDate"  required />
       </label>
 
       <p>Member</p>
         <select multiple required
           formControlName="members"
           [compareWith]="compareOptions">
-          <option [ngValue]="platform"
+          <option [ngValue]="member"
             *ngFor="let member of members">
             {{member.name}}
           </option>
         </select>
 
       <label>
-        <p>Genre</p>
+        <p>Place</p>
         <select
-        formControlName="genre"
+        formControlName="place"
         [compareWith]="compareOptions">
-        <option [ngValue]="genre"
-          *ngFor="let genre of genres">
-          {{genre.name}}
+        <option [ngValue]="place"
+          *ngFor="let place of places">
+          {{place.name}}
+        </option>
+        </select>
+      </label>
+
+      <label>
+        <p>Category</p>
+        <select
+        formControlName="category"
+        [compareWith]="compareOptions">
+        <option [ngValue]="category"
+          *ngFor="let category of categorys">
+          {{category.name}}
         </option>
         </select>
       </label>
 
     </fieldset>
     <div class="text-right">
-      <button type="reset">Abbrechen</button>
-      <button type="submit">Speichern</button>
+      <button type="reset" color="primary" mat-raised-button>Cancel</button>
+      <button type="submit" color="primary" mat-raised-button>Save</button>
     </div>
   </form>

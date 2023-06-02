@@ -1,0 +1,24 @@
+<div class="head">
+<h1>Place</h1>
+
+<a  [routerLink]="['/places']" color="primary" mat-raised-button>Back</a>
+</div>
+<form [formGroup]="placeForm" (ngSubmit)="save(placeForm.value)">
+  <fieldset>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text" formControlName="name" matInput required />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+      <input type="text" formControlName="description" matInput required />
+  </mat-form-field>
+    <br />
+
+  </fieldset>
+  <div class="text-right">
+    <button type="reset"color="primary" mat-raised-button>Cancel</button>
+    <button type="submit"color="primary" mat-raised-button>Save</button>
+  </div>
+</form>

@@ -19,11 +19,11 @@ export class EventService {
       return this.http.get<Event>(environment.backendBaseUrl + this.entityUrl + `/${id}`)
     }
     public update(event: Event): Observable<Event> {
-      return this.http.put<Event>(environment.backendBaseUrl + this.entityUrl + `/${event.id}`, Event);
+      return this.http.put<Event>(environment.backendBaseUrl + this.entityUrl + `/${event.id}`, event);
     }
 
     public save(event: Event): Observable<Event> {
-      return this.http.post<Event>(environment.backendBaseUrl + this.entityUrl, Event);
+      return this.http.post<Event>(environment.backendBaseUrl + this.entityUrl, event);
     }
 
     public delete(id: number): Observable<HttpResponse<string>> {
